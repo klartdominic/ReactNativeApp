@@ -4,7 +4,6 @@
  *
  * @format
  * @flow
- * @ts-check
  */
 
 import React from 'react';
@@ -28,7 +27,7 @@ import {
 const App: () => React$Node = () => {
   return (
     <>
-      <StatusBar barStyle="white-content" />
+      <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
@@ -45,7 +44,6 @@ const App: () => React$Node = () => {
               <Text style={styles.sectionDescription}>
                 Edit <Text style={styles.highlight}>App.js</Text> to change this
                 screen and then come back to see your edits.
-                okay ra diai ni mag error?
               </Text>
             </View>
             <View style={styles.sectionContainer}>
