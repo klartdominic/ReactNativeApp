@@ -27,9 +27,10 @@ export default class LoginForm extends Component<{}>{
           // placeholder='Username'
           placeholder={this.state.pword}
         /> 
-        <TouchableOpacity>
+        <TouchableOpacity
+            style={styles.touchable}>
           <Text>
-          test
+            Login
           </Text>
         </TouchableOpacity>
       </View>
@@ -53,6 +54,18 @@ const styles = StyleSheet.create({
     width: ( width * 0.7 ),
     marginVertical: 5,
     paddingHorizontal: 10,
+    fontSize: 14,
     // backgroundColor: 'black',
+  },
+  touchable:{
+    textAlign: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+    width: ( width * 0.7 ),
+    fontSize: 14,
+    borderRadius: 10,
+    marginVertical: 5,
+    alignItems: 'center',
+    paddingHorizontal: 30,
+    paddingVertical: 10,
   },
 });
