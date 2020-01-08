@@ -17,7 +17,7 @@ import {
   StatusBar,
 } from 'react-native';
 
-import Login from "./src/pages/login";
+import Routes from "./src/routes/route";
 
 export default class App extends Component{
   render(){
@@ -27,7 +27,7 @@ export default class App extends Component{
           backgroundColor="#1c313a"
           barStyle="light-content" />
         <View style={styles.container}>
-          <Login />
+          <Routes />
         </View>
       </>
     );
@@ -38,8 +38,7 @@ const styles = StyleSheet.create({
   container:{
     flex: 1,
     justifyContent: "center",
-    alignItems: 'center',
-    backgroundColor: 'rgba(78, 75, 76, 0.7)'
+    // alignItems: 'center',
   }
 });
 

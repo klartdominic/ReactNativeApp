@@ -13,12 +13,11 @@ export default class Logo extends Component{
       <View style={styles.container}>
         <Image 
           style={styles.images}
-          // style={{width: 40 , height: 70}}
           source={require('.././images/sprobe_logo.png')}
         />
         <Text
           style={styles.logoText}
-        >test</Text>
+        >This is sample Logo</Text>
       </View>
     );
   }
@@ -40,6 +39,7 @@ const styles = StyleSheet.create({
     height: 100,
   },
   logoText: {
+    paddingTop: 20,
     fontSize: 18,
     color: 'rgba(0,0,0,0.7)',
   },
