@@ -7,7 +7,7 @@
  * @ts-check
  */
 
-import React from 'react';
+import React, { Component }from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -19,17 +19,19 @@ import {
 
 import Login from "./src/pages/login";
 
-const App: () => React$Node = () => {
-  return (
-    <>
-      <StatusBar 
-        backgroundColor="#1c313a"
-        barStyle="light-content" />
-      <View style={styles.container}>
-        <Login />
-      </View>
-    </>
-  );
+export default class App extends Component{
+  render(){
+    return (
+      <>
+        <StatusBar 
+          backgroundColor="#1c313a"
+          barStyle="light-content" />
+        <View style={styles.container}>
+          <Login />
+        </View>
+      </>
+    );
+  }
 };
 
 const styles = StyleSheet.create({
@@ -41,4 +43,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default App;
+

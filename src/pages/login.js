@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { 
-  Image, 
   StyleSheet,
-  Dimensions,
   View,
   Text,
-  TouchOpacity,
 } from 'react-native';
 
 import LoginForm from ".././components/loginForm";
