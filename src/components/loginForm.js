@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-export default class LoginForm extends Component<{}>{
+export default class LoginForm extends Component{
   state = {
     uname: "Username",
     pword: "Password",
@@ -19,13 +19,16 @@ export default class LoginForm extends Component<{}>{
       <View style={styles.container}>
         <TextInput 
           style={styles.textInput} 
-          // placeholder='Username'
+          underlineColorAndroid='rgba(0, 0, 0, 0)'
+          selectionColor="#fff"
           placeholder={this.state.uname}
+          keyboardType="email-address"
+          onSubmitEditing={() => this.password.focus()}
         /> 
         <TextInput 
           style={styles.textInput} 
-          // placeholder='Username'
           placeholder={this.state.pword}
+          ref={(input) => this.password = input}
         /> 
         <TouchableOpacity
             style={styles.touchable}>
@@ -51,7 +54,7 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     borderRadius: 10,
     backgroundColor: 'rgba(200, 200, 200, 1)',
-    width: ( width * 0.7 ),
+    width: ( width * 0.8 ),
     marginVertical: 5,
     paddingHorizontal: 10,
     fontSize: 14,
@@ -60,7 +63,7 @@ const styles = StyleSheet.create({
   touchable:{
     textAlign: 'center',
     backgroundColor: 'rgba(255, 255, 255, 0.5)',
-    width: ( width * 0.7 ),
+    width: ( width * 0.8 ),
     fontSize: 14,
     borderRadius: 10,
     marginVertical: 5,

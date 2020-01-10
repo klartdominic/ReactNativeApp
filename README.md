@@ -1,4 +1,4 @@
 # ReactNativeApp
 basic react native 
 
-sample of the react-native app beginners
+React-Native Login App using the react-native-route-flux

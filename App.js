@@ -15,6 +15,7 @@ import {
   View,
   Text,
   StatusBar,
+  Dimensions,
 } from 'react-native';
 
 import Routes from "./src/routes/route";
