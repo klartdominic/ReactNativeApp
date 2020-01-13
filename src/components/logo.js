@@ -9,11 +9,12 @@ import {
 
 export default class Logo extends Component{
   render(){
+    let uri = 'https://facebook.github.io/react/logo-og.png'
     return(
       <View style={styles.container}>
         <Image 
           style={styles.images}
-          source={require('.././images/sprobe_logo.png')}
+          source={{uri}}
         />
         <Text
           style={styles.logoText}

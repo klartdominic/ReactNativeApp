@@ -27,7 +27,7 @@ export default class Login extends Component{
         <LoginForm type="login"/>
         <View style={styles.signupCont}>
           <Text>Don't Have Account yet?</Text>
-          <CustomButton title="login" onPress={this.signup}/>
+          <CustomButton name=" Login" onPress={this.signup}/>
         </View>
       </View>
     );

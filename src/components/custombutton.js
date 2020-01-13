@@ -9,17 +9,31 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-const CustomButton = (props) => {
-  return(
-    <TouchableOpacity
-        style={styles.touchable}
-        onPress={() =>  props.onPress()}
-        >
-      <Text>
-        Login
-      </Text>
-    </TouchableOpacity>
-  );
+// const CustomButton = () => {
+//   return(
+//     <TouchableOpacity
+//         style={styles.touchable}
+//         onPress={() =>  this.props.onPress()}
+//         >
+//       <Text>
+        
+//       </Text>
+//     </TouchableOpacity>
+//   );
+// }
+class CustomButton extends Component {
+  render(){
+    return(
+      <TouchableOpacity
+          style={styles.touchable}
+          onPress={() =>  this.props.onPress()}
+          >
+        <Text>
+          {this.props.name}
+        </Text>
+      </TouchableOpacity>
+    )
+  }
 }
 export default CustomButton;
 

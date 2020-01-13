@@ -9,7 +9,7 @@ import {
 import SignupForm from ".././components/signupForm";
 import Logo from ".././components/logo";
 import { Actions } from 'react-native-router-flux';
-
+import CustomButton from '.././components/custombutton';
 
 export default class Signup extends Component{
   popBack() {
@@ -22,9 +22,7 @@ export default class Signup extends Component{
         <SignupForm type="signup"/>
         <View style={styles.signupCont}>
           <Text>Already a Member?</Text>
-          <TouchableOpacity onPress={this.popBack}>
-          <Text> Signin</Text>
-          </TouchableOpacity>
+          <CustomButton name=" Signup" onPress={this.popBack}/>
         </View>
       </View>
     );
