@@ -16,16 +16,17 @@ import {
   StatusBar,
 } from 'react-native';
 
-import {createAppContainer, } from "react-navigation" 
+import {createAppContainer } from "react-navigation" 
 import {createStackNavigator} from "react-navigation-stack"
 import {createBottomTabNavigator} from "react-navigation-tabs"
+import  Icon from "react-native-vector-icons/Ionicons";
 
 class HomeScreen extends Component {
   render(){
     return(
-      <View style={styles.container}>
-        <Text>Home</Text>
-      </View>
+        <View style={styles.container}>
+          <Text>Home test</Text>
+        </View>
     );
   }
 }
@@ -42,13 +43,28 @@ class SettingScreen extends Component {
 
 // export default App;
 const NavigationStack = createBottomTabNavigator({
-  Home: HomeScreen ,
-  // Home: { screen:HomeScreen },
-  // Settings: { screen:SettingScreen },
-  Settings: SettingScreen,
+  Home: {
+    screen: HomeScreen,
+    navigationOptions: {
+      tabBarIcon: ({ tintColor }) => (
+        <Icon name="ios-home" color={tintColor} size={18} />
+      )
+    }
+  },
+  Settings:{
+  screen: HomeScreen,
+    navigationOptions: {
+      tabBarIcon: ({ tintColor }) => (
+        <Icon name="ios-settings" color={tintColor} size={18} />
+      )
+      }
+  },
 },{
-  initialRouteName: 'Settings',
-  // order: ['Home','Settings'],
+  initialRouteName: 'Home',
+  tabBarOptions: {
+    activeTintColor: 'blue',
+    inactiveTintColor: 'gray',
+  },
 })
 
 const NavigationContainer = createAppContainer(NavigationStack);
