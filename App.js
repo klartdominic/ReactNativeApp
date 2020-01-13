@@ -33,7 +33,7 @@ export default class App extends Component{
           barStyle="light-content" />
         <View style={styles.container}>
           <Routes />
-        </View>
+        </View> 
       </>
     );
   }
