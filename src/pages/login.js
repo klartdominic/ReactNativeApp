@@ -10,15 +10,14 @@ import {
 import LoginForm from ".././components/loginForm";
 import Logo from ".././components/logo";
 import { Actions } from "react-native-router-flux";
+import CustomButton from '.././components/custombutton';
 
 export default class Login extends Component{
   
+
+
   signup() {
     Actions.signup();
-  }
-
-  totalWidth() {
-    this.totalWidth = ( width * 1 )
   }
   
   render(){
@@ -28,13 +27,12 @@ export default class Login extends Component{
         <LoginForm type="login"/>
         <View style={styles.signupCont}>
           <Text>Don't Have Account yet?</Text>
-          <TouchableOpacity onPress={this.signup}>
-            <Text> Signup</Text>
-          </TouchableOpacity>
+          <CustomButton title="login" onPress={this.signup}/>
         </View>
       </View>
     );
   }
+
 }
 
 const { width } = Dimensions.get('window');

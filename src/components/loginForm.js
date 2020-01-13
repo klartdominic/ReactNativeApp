@@ -41,6 +41,12 @@ export default class LoginForm extends Component{
   }
 }
 
+variables = { 
+  widthPerc : 0.9,
+}
+
+totalWidth = () => {  }
+
 const { width } = Dimensions.get('window');
 const { height } = Dimensions.get('window');
 
@@ -54,7 +60,8 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     borderRadius: 10,
     backgroundColor: 'rgba(200, 200, 200, 1)',
-    width: ( width * 0.8 ),
+    // width: ( width * 0.8 ),
+    width: ( width * this.variables.widthPerc ),
     marginVertical: 5,
     paddingHorizontal: 10,
     fontSize: 14,
@@ -63,7 +70,8 @@ const styles = StyleSheet.create({
   touchable:{
     textAlign: 'center',
     backgroundColor: 'rgba(255, 255, 255, 0.5)',
-    width: ( width * 0.8 ),
+    // width: ( width * 0.8 ),
+    width: ( width * this.variables.widthPerc ),
     fontSize: 14,
     borderRadius: 10,
     marginVertical: 5,
