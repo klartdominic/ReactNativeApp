@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import {createAppContainer } from "react-navigation" 
 import {createStackNavigator} from "react-navigation-stack"
 import {createBottomTabNavigator} from "react-navigation-tabs"
+import {createMaterialBottomTabNavigator} from "react-navigation-material-bottom-tabs"
 import  Icon from "react-native-vector-icons/Ionicons";
 
 import HomeScreen from ".././pages/home";
@@ -10,11 +11,11 @@ import PostScreen from ".././pages/posts";
 import SettingsScreen from ".././pages/settings";
 
 const variables = {
-   size: 12,
+   size: 14,
 }
 
 // export default App;
-const NavigationStack = createBottomTabNavigator({
+const NavigationStack = createMaterialBottomTabNavigator({
   Home: {
     screen: HomeScreen,
     navigationOptions: {
@@ -41,9 +42,10 @@ const NavigationStack = createBottomTabNavigator({
   }
 },{
   initialRouteName: 'Home',
-  tabBarOptions: {
-    activeTintColor: 'black',
-    inactiveTintColor: 'gray',
+  activeColor: 'black',
+  inactiveColor: 'gray',
+  barStyle: {
+    backgroundColor: 'white',
   },
 })
 
