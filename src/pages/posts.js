@@ -9,7 +9,7 @@ class PostScreen extends Component {
   render(){
     return(
       <View style={styles.container}>
-        <Text>Settings</Text>
+        <Text>Post List</Text>
       </View>
     );
   }

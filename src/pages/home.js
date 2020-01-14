@@ -6,6 +6,9 @@ import {
 } from 'react-native';
 
 class HomeScreen extends Component {
+  static navitaionOPtions = {
+    title: 'This is Home'
+  }
   render(){
     return(
         <View style={styles.container}>
