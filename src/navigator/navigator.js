@@ -9,6 +9,7 @@ import  Icon from "react-native-vector-icons/Ionicons";
 import HomeScreen from ".././pages/home";
 import PostScreen from ".././pages/posts";
 import SettingsScreen from ".././pages/settings";
+import FlatListDemo from ".././pages/flatlistdemo";
 
 const variables = {
    size: 14,
@@ -34,6 +35,14 @@ const NavigationStack = createMaterialBottomTabNavigator({
   },
   Settings:{
     screen: SettingsScreen,
+    navigationOptions: {
+      tabBarIcon: ({tintColor}) => (
+        <Icon name="ios-settings" color={tintColor} size={variables.size} />
+      )
+    }
+  },
+  FlatListDemo:{
+    screen: FlatListDemo,
     navigationOptions: {
       tabBarIcon: ({tintColor}) => (
         <Icon name="ios-settings" color={tintColor} size={variables.size} />
