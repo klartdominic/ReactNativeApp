@@ -56,6 +56,8 @@ const NavigationStack = createMaterialBottomTabNavigator({
   barStyle: {
     backgroundColor: 'white',
   },
+  shifting: false,
+
 })
 
 const NavigationContainer = createAppContainer(NavigationStack);

@@ -11,14 +11,17 @@ const DATA = [
   {
     id: '1',
     title: 'First Item',
+    name: 'test1',
   },
   {
     id: '2',
     title: 'Second Item',
+    name: 'test2',
   },
   {
     id: '3',
     title: 'Third Item',
+    name: 'test3',
   },
 ];
 
@@ -26,11 +29,7 @@ const pressHandler = (id) => {
   {console.log(id)}
 }
 
-class HomeScreen extends Component {
-  static navitaionOPtions = {
-    title: 'This is Home'
-  };
-  
+class HomeScreen extends Component {  
   render(){
     return(
       <View style={styles.container}>

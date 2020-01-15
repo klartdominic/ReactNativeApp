@@ -10,6 +10,7 @@ class PostScreen extends Component {
     return(
       <View style={styles.container}>
         <Text>Post List</Text>
+        <Text>{this.props.name}</Text>
       </View>
     );
   }
