@@ -6,6 +6,7 @@ import {
   FlatList
 } from 'react-native';
 import { List, ListItem } from 'react-native-elements';
+import PostScreen from ".././pages/posts";
 
 const DATA = [
   {
@@ -25,18 +26,24 @@ const DATA = [
   },
 ];
 
-const pressHandler = (id) => {
-  {console.log(id)}
+// const pressHandler=(id) => {
+  // this.props
+  // this.props.navigation.navigate('PostScreen')
+  
+// }
+const pressHandler = () =>{
+  console.log(this.props)
 }
-
 class HomeScreen extends Component {  
+
   render(){
     return(
       <View style={styles.container}>
         <FlatList
           data={DATA}
           renderItem={({item}) => (
-            <TouchableOpacity onPress={() => pressHandler(item.id)}>
+            // <TouchableOpacity onPress={() => pressHandler(item.id)}>
+            <TouchableOpacity onPress={() => console.log(this.props.navigation.navigate("PostScreen"))}> 
               <ListItem 
                 roundAvatar
                 title="test"
