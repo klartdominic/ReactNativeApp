@@ -60,6 +60,17 @@ const NavigationStack = createMaterialBottomTabNavigator({
 
 })
 
+const StackNavigator = () => createStackNavigator({
+  Posts:{
+    screen: PostScreen,
+    navigationOptions: {
+      tabBarIcon: ({ tintColor }) => (
+        <Icon name="ios-browsers" color={tintColor} size={variables.size} />
+      )
+    }
+  },
+})
+
 const NavigationContainer = createAppContainer(NavigationStack);
 
 export default NavigationContainer;

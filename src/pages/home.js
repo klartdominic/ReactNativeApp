@@ -43,7 +43,7 @@ class HomeScreen extends Component {
           data={DATA}
           renderItem={({item}) => (
             // <TouchableOpacity onPress={() => pressHandler(item.id)}>
-            <TouchableOpacity onPress={() => console.log(this.props.navigation.navigate("PostScreen"))}> 
+            <TouchableOpacity onPress={() => console.log(this.props.navigation.navigate("Posts"))}> 
               <ListItem 
                 roundAvatar
                 title="test"
