@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import {
   View,
   StyleSheet,
@@ -39,35 +39,21 @@ class HomeScreen extends Component {
   };
   
   pressHandler = (item) =>{
-    this.setState({id: item.id})
-    this.setState.title = item.title
-    console.log(this)
+    this.setState({
+        id: item.id,
+        title: item.title,
+        name: item.name
+    })
+    // console.log(this)
     this.props.navigation.navigate("Posts")
-  }
-
-  functionTest = () => {
-    const [testingText, setTestingText]  = setState(
-      {
-        id: '1',
-        title: 'First Item',
-        name: 'test1', 
-      },
-      {
-        id: 'test2',
-        title: 'testing',
-        name: 'test2'
-      }  
-    )
   }
 
   render(){
     return(
       <View style={styles.container}>
-        <Text>{console.log(this)}</Text>
         <FlatList
           data={DATA}
           renderItem={({item}) => (
-            // <TouchableOpacity onPress={() => pressHandler(item.id)}>
             <TouchableOpacity onPress={() => this.pressHandler(item)}> 
               <ListItem 
                 roundAvatar
@@ -77,7 +63,7 @@ class HomeScreen extends Component {
             </TouchableOpacity>
           )}
           keyExtractor={item => item.id}
-        />
+        /> 
       </View>
     );
   }
