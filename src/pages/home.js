@@ -3,10 +3,10 @@ import {
   View,
   StyleSheet,
   TouchableOpacity,
-  FlatList
+  FlatList,
+  Text,
 } from 'react-native';
 import { List, ListItem } from 'react-native-elements';
-import PostScreen from ".././pages/posts";
 
 const DATA = [
   {
@@ -26,27 +26,53 @@ const DATA = [
   },
 ];
 
-// const pressHandler=(id) => {
-  // this.props
-  // this.props.navigation.navigate('PostScreen')
-  
-// }
-const pressHandler = () =>{
-  console.log(this.props)
-}
+
 class HomeScreen extends Component {  
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+      id: "",
+      title: "",
+      name: "",
+    };
+  };
+  
+  pressHandler = (item) =>{
+    this.setState({id: item.id})
+    this.setState.title = item.title
+    console.log(this)
+    this.props.navigation.navigate("Posts")
+  }
+
+  functionTest = () => {
+    const [testingText, setTestingText]  = setState(
+      {
+        id: '1',
+        title: 'First Item',
+        name: 'test1', 
+      },
+      {
+        id: 'test2',
+        title: 'testing',
+        name: 'test2'
+      }  
+    )
+  }
 
   render(){
     return(
       <View style={styles.container}>
+        <Text>{console.log(this)}</Text>
         <FlatList
           data={DATA}
           renderItem={({item}) => (
             // <TouchableOpacity onPress={() => pressHandler(item.id)}>
-            <TouchableOpacity onPress={() => console.log(this.props.navigation.navigate("Posts"))}> 
+            <TouchableOpacity onPress={() => this.pressHandler(item)}> 
               <ListItem 
                 roundAvatar
-                title="test"
+                title={`${item.id} ${item.title} ${item.name}`}
+                containerStyle={{ borderBottomWidth: 0 }}
               />
             </TouchableOpacity>
           )}

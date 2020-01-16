@@ -100,8 +100,6 @@ class FlatListDemo extends Component {
   render() {
     return (
       <View>
-        {console.log(this.state.data)}
-
         <FlatList
           data={this.state.data}
           renderItem={({ item }) => (

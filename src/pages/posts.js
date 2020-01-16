@@ -3,14 +3,29 @@ import {
   View,
   Text,
   StyleSheet,
+  Button,
 } from 'react-native';
 
 class PostScreen extends Component {
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+       id: "",
+       title: "",
+       name: "",
+    };
+  };
+  
+  logThis = () => {
+    console.log("test")
+  }
+
   render(){
     return(
       <View style={styles.container}>
         <Text>Post List</Text>
-        <Text>{this.props.name}</Text>
+        <Button title="test"  onPress={this.logThis} />
       </View>
     );
   }
