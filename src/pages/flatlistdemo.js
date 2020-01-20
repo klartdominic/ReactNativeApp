@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { View, TouchableOpacity, FlatList, ActivityIndicator } from "react-native";
 import { List, ListItem, SearchBar } from "react-native-elements";
-import { LongPressGestureHandler } from "react-native-gesture-handler";
 
 class FlatListDemo extends Component {
   constructor(props) {
@@ -13,7 +12,7 @@ class FlatListDemo extends Component {
       page: 1,
       seed: 1,
       error: null,
-      refreshing: false
+      refreshing: false,
     };
   }
 
