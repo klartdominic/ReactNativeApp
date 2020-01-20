@@ -5,23 +5,16 @@ import {
   StyleSheet,
   Button,
 } from 'react-native';
-function PostScreen2(props){
-  // render(){
-    return(
-      <View style={styles.container}>
-        <Text>Post List</Text>
-        <Text>{console.log(props.id)}</Text>
-      </View>
-    );
-  // }
-}
 class PostScreen extends Component {
   constructor(){
     super()
     this.state={
-      
+
     }
   }
+
+  
+
   render(){
     return(
       <View style={styles.container}>
