@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import {
   View,
   StyleSheet,
@@ -6,7 +6,7 @@ import {
   FlatList,
   Text,
 } from 'react-native';
-import { List, ListItem } from 'react-native-elements';
+import { ListItem } from 'react-native-elements';
 
 const DATA = [
   {
@@ -28,15 +28,15 @@ const DATA = [
 
 
 class HomeScreen extends Component {  
-  constructor(props) {
-    super(props)
+  // constructor() {
+  //   super()
   
-    this.state = {
-      id: "",
-      title: "",
-      name: "",
-    };
-  };
+  //   this.state = {
+  //     id: "",
+  //     title: "",
+  //     name: "",
+  //   };
+  // };
   
   pressHandler = (item) =>{
     this.setState({
@@ -45,7 +45,7 @@ class HomeScreen extends Component {
         name: item.name
     })
     // console.log(this)
-    this.props.navigation.navigate("Posts")
+    this.props.navigation.navigate("Posts", {id:item.id})
   }
 
   render(){
