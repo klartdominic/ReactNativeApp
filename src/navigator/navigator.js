@@ -28,8 +28,10 @@ const NavigationStack = createMaterialBottomTabNavigator({
     navigationOptions: {
       tabBarIcon: ({ tintColor }) => (
         <Icon name="ios-browsers" color={tintColor} size={variables.size} />
-      )
-    }
+      ),
+      
+    },
+    
   },
   Settings:{
     screen: SettingsScreen,

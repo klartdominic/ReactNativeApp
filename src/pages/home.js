@@ -111,7 +111,11 @@ class HomeScreen extends Component {
   }
 
   pressHandler = (item) =>{
-    this.props.navigation.navigate("Posts", {id:item.login.uuid})
+    this.props.navigation.navigate("Posts", {
+        id:item.login.uuid,
+        firstname: item.name.first,
+        lastname: item.name.last
+    })
   }
 
   render(){

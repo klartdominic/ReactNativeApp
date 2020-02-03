@@ -5,6 +5,7 @@ import {
   StyleSheet,
   Button,
 } from 'react-native';
+import { HeaderTitle } from 'react-navigation-stack';
 class PostScreen extends Component {
   constructor(){
     super()
@@ -15,11 +16,13 @@ class PostScreen extends Component {
 
   render(){
     const { navigation } = this.props;
+    const varfname = navigation.getParam('firstname', 'No First name');
+    const varlname = navigation.getParam('lastname', 'No Last name')
     return(
+      
       <View style={styles.container}>
-        <Text>Post List</Text>
-        {/* <Text>{this.props.navigation.state.params.id}</Text> */}
-        <Text>{navigation.getParam('id')}</Text>
+        {/* <Text>Post List</Text> */}
+        <Text>{`${varfname} ${varlname}`}</Text>
       </View>
     );
   }
