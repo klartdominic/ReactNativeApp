@@ -63,11 +63,21 @@ class HomeScreen extends Component {
           loading: false,
           refreshing: false
         });
-        // console.log(this.state.data);
       })
       .catch(error => {
         this.setState({ error, loading: false });
       });
+  };
+
+  handleLoadMore = () => {
+    this.setState(
+      {
+        page: this.state.page + 1
+      },
+      () => {
+        this.makeRemoteRequest();
+      }
+    );
   };
   
   remoteRequestPoke = () => {
@@ -77,7 +87,6 @@ class HomeScreen extends Component {
     fetch(url)
       .then(pokemon => pokemon.json())
       .then(pokemon => {
-        console.log(pokemon.results);
         this.setState({
           pokemonData: pokemon.results,
           loading: false,
@@ -86,11 +95,10 @@ class HomeScreen extends Component {
       .catch(error => {
         this.setState({ error, loading: false })
       })
-      console.log(this.state.pokemonData);
   }
 
   pressHandler = (item) =>{
-    this.props.navigation.navigate("Posts", {name:item.name})
+    this.props.navigation.navigate("Posts", {id:item.login.uuid})
   }
 
   render(){
@@ -98,19 +106,27 @@ class HomeScreen extends Component {
       <View style={styles.container}>
         <FlatList
           // data={DATA}
-          data={this.state.pokemonData}
+          data={this.state.data}
           renderItem={({item}) => (
             <TouchableOpacity onPress={() => this.pressHandler(item)}> 
               <ListItem 
                 roundAvatar
                 // title={`${item.id} ${item.title} ${item.name}`}
-                // title={`${item.name.first} ${item.name.last} ${item.login.uuid}`}
-                title={`${item.name} ${item.url}`}
+                title={`${item.name.first} ${item.name.last} ${item.login.uuid}`}
+                subtitle={item.email}
+                avatar={{ uri: item.picture.thumbnail }}
                 containerStyle={{ borderBottomWidth: 0 }}
               />
             </TouchableOpacity>
           )}
-          keyExtractor={item => item.id}
+          keyExtractor={item => item.email}
+          ItemSeparatorComponent={this.renderSeparator}
+          ListHeaderComponent={this.renderHeader}
+          ListFooterComponent={this.renderFooter}
+          onRefresh={this.handleRefresh}
+          refreshing={this.state.refreshing}
+          onEndReached={this.handleLoadMore}
+          onEndReachedThreshold={50}
         /> 
       </View>
     );

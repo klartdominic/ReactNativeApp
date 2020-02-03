@@ -19,7 +19,7 @@ class PostScreen extends Component {
       <View style={styles.container}>
         <Text>Post List</Text>
         {/* <Text>{this.props.navigation.state.params.id}</Text> */}
-        <Text>{navigation.getParam('name', 'Name of Pokemon')}</Text>
+        <Text>{navigation.getParam('id')}</Text>
       </View>
     );
   }
