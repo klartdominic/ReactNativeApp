@@ -37,6 +37,7 @@ class HomeScreen extends Component {
       loading: false,
       data: [],
       pokemonData: [] ,
+      localData: [DATA],
       page: 1,
       seed: 1,
       error: null,
@@ -77,6 +78,18 @@ class HomeScreen extends Component {
       () => {
         this.makeRemoteRequest();
       }
+    );
+  };
+
+  renderSeparator = () => {
+    return (
+      <View
+        style={{
+          height: 1,
+          width: "100%",
+          backgroundColor: "#CED0CE",
+        }}
+      />
     );
   };
   
