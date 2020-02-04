@@ -58,14 +58,6 @@ const Home = createStackNavigator({
 
 // export default App;
 const NavigationStack = createMaterialBottomTabNavigator({
-  // Home: {
-  //   screen: HomeScreen,
-  //   navigationOptions: {
-  //     tabBarIcon: ({ tintColor }) => (
-  //       <Icon name="ios-home" color={tintColor} size={variables.size} />
-  //     )
-  //   }
-  // },
   Home: Home,
   Posts:{
     screen: PostScreen,
