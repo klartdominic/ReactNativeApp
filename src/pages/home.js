@@ -44,7 +44,7 @@ class HomeScreen extends Component {
       refreshing: false,
     };
   };
-
+  
   componentDidMount() {
     this.makeRemoteRequest();
     this.remoteRequestPoke();
@@ -109,6 +109,10 @@ class HomeScreen extends Component {
         this.setState({ error, loading: false })
       })
   }
+  
+  renderHeader = () => {
+    return <Text>testing2</Text>;
+  }
 
   pressHandler = (item) =>{
     this.props.navigation.navigate("Posts", {
@@ -138,7 +142,7 @@ class HomeScreen extends Component {
           )}
           keyExtractor={item => item.email}
           ItemSeparatorComponent={this.renderSeparator}
-          ListHeaderComponent={this.renderHeader}
+          // ListHeaderComponent={this.renderHeader}
           ListFooterComponent={this.renderFooter}
           onRefresh={this.handleRefresh}
           refreshing={this.state.refreshing}

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { Button, Text } from 'react-native';
+
 import {createAppContainer } from "react-navigation";
 import {createMaterialBottomTabNavigator} from "react-navigation-material-bottom-tabs";
 import  Icon from "react-native-vector-icons/Ionicons";
@@ -8,21 +10,63 @@ import HomeScreen from ".././pages/home";
 import PostScreen from ".././pages/posts";
 import SettingsScreen from ".././pages/settings";
 import FlatListDemo from ".././pages/flatlistdemo";
+import { HeaderBackButton, createStackNavigator } from 'react-navigation-stack';
 
 const variables = {
    size: 14,
 }
 
-// export default App;
-const NavigationStack = createMaterialBottomTabNavigator({
+const Home = createStackNavigator({
   Home: {
+    
     screen: HomeScreen,
-    navigationOptions: {
+    navigationOptions : ({ navigation }) => ({
+      
       tabBarIcon: ({ tintColor }) => (
         <Icon name="ios-home" color={tintColor} size={variables.size} />
-      )
-    }
+      ),
+      headerTitle: () => <Text style={{alignItem: 'center'}}>Testing</Text>,
+      headerRight: () => (
+        <Button
+          onPress={navigation.getParam('increaseCount')}
+          title="Add Todo List"
+          color={Platform.OS === 'ios' ? '#fff' : '#000'}
+        />
+      ),
+    })
+  
+  }
+},{
+  initialRouteName: 'Home',
+  activeColor: 'black',
+  inactiveColor: 'gray',
+  barStyle: {
+    backgroundColor: 'white',
   },
+  shifting: false,
+  defaultNavigationOptions: {
+    headerStyle: {
+      backgroundColor: '#fff',
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+  }
+  
+});
+
+// export default App;
+const NavigationStack = createMaterialBottomTabNavigator({
+  // Home: {
+  //   screen: HomeScreen,
+  //   navigationOptions: {
+  //     tabBarIcon: ({ tintColor }) => (
+  //       <Icon name="ios-home" color={tintColor} size={variables.size} />
+  //     )
+  //   }
+  // },
+  Home: Home,
   Posts:{
     screen: PostScreen,
     navigationOptions: {
@@ -56,7 +100,7 @@ const NavigationStack = createMaterialBottomTabNavigator({
   barStyle: {
     backgroundColor: 'white',
   },
-  shifting: false,
+  shifting: false,  
 })
 
 

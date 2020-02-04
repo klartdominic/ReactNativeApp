@@ -18,7 +18,6 @@ class FlatListDemo extends Component {
 
   componentDidMount() {
     this.makeRemoteRequest();
-    console.log("testing");
   }
 
   makeRemoteRequest = () => {
