@@ -9,6 +9,7 @@ import {
   Alert,
   Platform,
 } from 'react-native';
+import styles from '.././styles/styles'
 import { ListItem } from 'react-native-elements';
 
 //array data
@@ -136,8 +137,12 @@ class HomeScreen extends Component {
       .then(pokemon => pokemon.json())
       .then(pokemon => {
         this.setState({
+          //used for multi-page API
+          // pokemonData: page === 1 ? pokemon.results : [...this.state.pokemonData, ...pokemon.results],
           pokemonData: pokemon.results,
+          error: pokemon.error || null,
           loading: false,
+          refreshing: false,
         })
       })
       .catch(error => {
@@ -189,9 +194,3 @@ class HomeScreen extends Component {
 }
 
 export default HomeScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  }
-})

@@ -27,25 +27,16 @@ const Home = createStackNavigator({
   }
 
 },{
-  initialRouteName: 'Home',
+  initialRouteName: 'Home', //default 
+  // initialRouteName: 'AddTodo', //for testing 
   activeColor: 'black',
   inactiveColor: 'gray',
   barStyle: {
     backgroundColor: 'white',
   }, 
   shifting: false,
-  // defaultNavigationOptions: {
-  //   headerStyle: {
-  //     backgroundColor: '#fff',
-  //     },
-  //     headerTintColor: '#fff',
-  //     headerTitleStyle: {
-  //       fontWeight: 'bold',
-  //     },
-  // }
 });
 
-// export default App;
 const NavigationStack = createMaterialBottomTabNavigator({
   Home: {
     screen: Home,

@@ -3,10 +3,12 @@ import {
   View,
   Text,
   StyleSheet,
-  Button,
+  TouchableOpacity,
+  Dimensions,
   AsyncStorage,
+  Platform,
 } from 'react-native';
-
+import styles from '.././styles/styles'
 import { TextInput } from 'react-native-paper';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
@@ -15,7 +17,7 @@ class AddTodoList extends Component {
     super()
 
     this.state = {
-      currentDate:''
+      currentDate:'',
     }
   }
 
@@ -28,6 +30,7 @@ class AddTodoList extends Component {
     this.setState({
       currentDate: (`${fullDate}`),
     })
+
   }
 
   _scrollToInput (reactNode: any) {
@@ -38,10 +41,12 @@ class AddTodoList extends Component {
   render(){
     return(
       <KeyboardAwareScrollView 
-          innerRef={ref => {
-        this.scroll = ref
-      }}>
-        <View style={styles.container}>
+        innerRef={ref => {
+          this.scroll = ref
+        }}
+        
+      >
+        <View style={styles.todoContainer}>
           {/* <Text>Add Todo List</Text> */}
           <Text>{this.state.currentDate}</Text>
           <TextInput
@@ -53,6 +58,7 @@ class AddTodoList extends Component {
             style={styles.detailInput}
             placeholder="Details"
             multiline={true}
+            // textAlign= 'start'
             underlineColorAndroid='transparent'
             onFocus={(event: Event) => {
               // `bind` the function if you're using ES6 classes
@@ -60,6 +66,12 @@ class AddTodoList extends Component {
             }}
             
           />
+          <TouchableOpacity
+            style={styles.touchable}>
+          <Text>
+            Add
+          </Text>
+        </TouchableOpacity>
         </View>
       </KeyboardAwareScrollView>
     );
@@ -67,29 +79,3 @@ class AddTodoList extends Component {
 }
 
 export default AddTodoList;
-
-const styles = StyleSheet.create({
-  container: {
-    // flex: 1,
-    flexDirection: "column",
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10,
-    
-  },
-  textInput: {
-    width: 300,
-    marginBottom: 20,
-
-    
-    // height: 20,
-  },
-  detailInput: {
-    // flex: 3,
-    width: 300,
-    // height: 300,   
-    // justifyContent: "space-around",
-    textAlignVertical: 'top',
-  }
-
-})

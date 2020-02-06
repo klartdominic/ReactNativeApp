@@ -5,6 +5,7 @@ import {
   StyleSheet,
   Button,
 } from 'react-native';
+import styles from '.././styles/styles';
 import { HeaderTitle } from 'react-navigation-stack';
 class PostScreen extends Component {
   constructor(){
@@ -21,7 +22,7 @@ class PostScreen extends Component {
     const homeName = navigation.getParam("name", "no data")
     return(
       
-      <View style={styles.container}>
+      <View style={styles.postContainer}>
         {/* <Text>Post List</Text> */}
         {/* <Text>{`${varfname} ${varlname}`}</Text> */}
         <Text>{`${homeName}`}</Text>
@@ -31,11 +32,3 @@ class PostScreen extends Component {
 }
 
 export default PostScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  }
-})
