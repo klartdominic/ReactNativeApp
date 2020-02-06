@@ -4,47 +4,16 @@
  *
  * @format
  * @flow
- * @ts-check
  */
 
-import React, { Component }from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-  Dimensions,
-} from 'react-native';
+import React, { Component } from 'react';
 
-import Routes from "./src/routes/route";
-
-// import { createStackNavigator } from 'react-navigation-stack';
-
-// import { createAppContainer } from '@react-navigation/native';
+import NavigationContainer from './src/navigator/navigator';
 
 export default class App extends Component{
   render(){
-    return (
-      <>
-        <StatusBar 
-          backgroundColor="#1c313a"
-          barStyle="light-content" />
-        <View style={styles.container}>
-          <Routes />
-        </View>
-      </>
+    return(
+      <NavigationContainer />
     );
   }
-};
-
-const styles = StyleSheet.create({
-  container:{
-    flex: 1,
-    justifyContent: "center",
-    // alignItems: 'center',  //Removed the alignItems for using the Routes
-  }
-});
-
-
+}
