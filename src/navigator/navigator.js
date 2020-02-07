@@ -27,13 +27,13 @@ const Home = createStackNavigator({
   }
 
 },{
-  initialRouteName: 'Home', //default 
-  // initialRouteName: 'AddTodo', //for testing 
+  // initialRouteName: 'Home', //default 
+  initialRouteName: 'AddTodo', //for testing 
   activeColor: 'black',
   inactiveColor: 'gray',
-  barStyle: {
-    backgroundColor: 'white',
-  }, 
+  // barStyle: {
+  //   backgroundColor: 'white',
+  // }, 
   shifting: false,
 });
 

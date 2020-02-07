@@ -7,6 +7,7 @@ import {
   Dimensions,
   AsyncStorage,
   Platform,
+  Keyboard,
 } from 'react-native';
 import styles from '.././styles/styles'
 import { TextInput } from 'react-native-paper';
@@ -18,6 +19,11 @@ class AddTodoList extends Component {
 
     this.state = {
       currentDate:'',
+      DATA: {
+        titleInput: '',
+        detailInput: '',
+      },
+      backgroundColor: 'rgba(0, 0, 0, 1)',
     }
   }
 
@@ -30,6 +36,15 @@ class AddTodoList extends Component {
     this.setState({
       currentDate: (`${fullDate}`),
     })
+    Keyboard.addListener(
+      isAndroid ? "keyboardDidShow" : "keyboardWillShow",
+      e => this.setState({ viewPadding: e.endCoordinates.height + viewPadding })
+    );
+
+    Keyboard.addListener(
+      isAndroid ? "keyboardDidHide" : "keyboardWillHide",
+      () => this.setState({ viewPadding: viewPadding })
+    );
 
   }
 
@@ -38,13 +53,19 @@ class AddTodoList extends Component {
     this.scroll.props.scrollToFocusedInput(reactNode)
   }
 
+  saveData = () => {
+    console.log(this.state)
+  }
+
   render(){
     return(
       <KeyboardAwareScrollView 
         innerRef={ref => {
           this.scroll = ref
         }}
-        
+        extraHeight= {20}
+        extraScrollHeight={20}
+        automaticallyAdjustContentInsets={false}
       >
         <View style={styles.todoContainer}>
           {/* <Text>Add Todo List</Text> */}
@@ -52,30 +73,40 @@ class AddTodoList extends Component {
           <TextInput
             style={styles.textInput}
             placeholder="Todo Title"
-            inlineImageLeft='search_icon'
+            selectionColor="#fff"
+            underlineColorAndroid={this.state.backgroundColor}
+            onSubmitEditing={() => this.details.focus()}
+            onChangeText={(text) => this.setState({text})}
           />
           <TextInput
             style={styles.detailInput}
-            placeholder="Details"
-            multiline={true}
-            // textAlign= 'start'
-            underlineColorAndroid='transparent'
+            underlineColorAndroid={this.state.backgroundColor}
+            placeholder="Details" 
+            multiline={true} 
+            numberOfLines={20}
+            maxLength={1000} 
             onFocus={(event: Event) => {
               // `bind` the function if you're using ES6 classes
               this._scrollToInput((event.target))
             }}
-            
+            ref={(input) => this.details = input}
+            onChangeText={(textInput) => this.setState({textInput})}
           />
           <TouchableOpacity
-            style={styles.touchable}>
+            style={styles.touchable}
+            onPress={() => this.saveData()}
+          >
           <Text>
             Add
           </Text>
-        </TouchableOpacity>
+          </TouchableOpacity>
         </View>
       </KeyboardAwareScrollView>
     );
   }
 }
+
+const isAndroid = Platform.OS === "android";
+const viewPadding = 10;
 
 export default AddTodoList;

@@ -179,7 +179,12 @@ class HomeScreen extends Component {
               />
             </TouchableOpacity>
           )}
-          keyExtractor={item => item.email}
+          ListEmptyComponent={
+              <View style={{justifyContent: 'center', alignItems: 'center', flex: 1}}>
+                  <Text>Oops! You don't have any Tasks</Text>
+              </View>
+          }
+          keyExtractor={item => item.url}
           ItemSeparatorComponent={this.renderSeparator}
           // ListHeaderComponent={this.renderHeader}
           ListFooterComponent={this.renderFooter}
@@ -191,6 +196,8 @@ class HomeScreen extends Component {
       </View>
     );
   }
+
+  
 }
 
 export default HomeScreen;

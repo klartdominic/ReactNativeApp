@@ -4,12 +4,13 @@ import {
   Text,
   StyleSheet,
 } from 'react-native';
+import styles from '.././styles/styles';
 
 class SettingsScreen extends Component {
   render(){
     return(
       
-      <View style={styles.container}>
+      <View style={styles.settingsContainer}>
         <Text>Settings</Text>
       </View>
     );
@@ -18,10 +19,3 @@ class SettingsScreen extends Component {
 
 export default SettingsScreen;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  }
-})

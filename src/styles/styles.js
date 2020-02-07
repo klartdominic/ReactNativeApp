@@ -3,10 +3,17 @@ import {
   Dimensions,
 } from 'react-native';
 
+const _totalWidth = Dimensions.get('window').width;
+const _totalheight = Dimensions.get('window').height;
+
 const variable = {
-  totalWidth: 0.8 * Dimensions.get('window').width,
-  textInputBorderRadius: 10,
+  width: 0.8 * _totalWidth, 
+  textInputBorderRadius: 4,
   touchableBorderRadius: 10,
+  fontSize: 14,
+  backgroundColor: 'rgba(150, 200, 200, 0.5)',
+  buttonBGColor: 'rgba(200, 150, 200, 1)',
+  textInputHeight: 50,
 };
 
 const styles = StyleSheet.create({
@@ -14,7 +21,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   todoContainer: {
-    // flex: 1,
+    flex: 1,
     flexDirection: "column",
     justifyContent: 'center',
     alignItems: 'center',
@@ -26,29 +33,35 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  settingsContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   textInput: {
+    textAlign: 'left',
     marginBottom: 20,
     borderRadius: variable.textInputBorderRadius,
-    width: variable.totalWidth,
+    width: variable.width,
     marginVertical: 5,
-    fontSize: 14,
-    backgroundColor: 'rgba(200, 200, 200, 1)',
-    height: 60,
+    fontSize: variable.fontSize,
+    backgroundColor: variable.backgroundColor,
+    height: variable.textInputHeight,
   },
   detailInput: {
-    width: variable.totalWidth,
-    // height: 300,
-    textAlignVertical: Platform.OS === 'android' ? 'top' : null,
-    // textAlign: 'start',
-    // paddingTop: 0,
-    // paddingBottom: 0,
+    // textAlignVertical : "top",
+    textAlignVertical: Platform.OS === 'android' ? 'top' : 'auto',
+    width: variable.width,
+    backgroundColor: variable.backgroundColor,
+    borderRadius: variable.textInputBorderRadius,
+    fontSize: variable.fontSize,
   },
   touchable:{
     textAlign: 'center',
-    backgroundColor: 'rgba(155, 155, 255, 0.5)',
+    backgroundColor: variable.buttonBGColor,
     // width: ( width * 0.8 ),
-    width: variable.totalWidth,
-    fontSize: 14,
+    width: variable.width,
+    fontSize: variable.fontSize,
     borderRadius: variable.touchableBorderRadius,
     marginVertical: 5,
     alignItems: 'center',
